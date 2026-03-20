@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Segnali Forex - TwelveData</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="statusBar" class="status-bar">
+  <div id="statusDot" class="status-dot"></div>
+  <span id="statusText">In attesa aggiornamenti…</span>
+  <span id="lastUpdate" class="last-update">Nessun dato ancora</span>
+</div>
+
+<button id="refreshBtn" class="refresh-btn">🔄 Aggiorna ora</button>
+
+<h1>Segnali Forex </h1>
+<p>Aggiornamento ogni 60 secondi — API key gratuita</p>
+<div class="filters">
+  <button data-filter="all">Tutti</button>
+  <button data-filter="strong_buy">Strong BUY</button>
+  <button data-filter="strong_sell">Strong SELL</button>
+  <button data-filter="buy">BUY</button>
+  <button data-filter="sell">SELL</button>
+  <button data-filter="weak">WEAK</button>
+</div>
+
+<audio id="soundBuy" src="buy.mp3"></audio>
+<audio id="soundSell" src="sell.mp3"></audio>
+<audio id="soundWeak" src="weak.mp3"></audio>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Orario</th>
+      <th>Coppia</th>
+      <th>Segnale</th>
+      <th>Score</th>
+      <th>Trend%</th>
+      <th>Scadenza</th>
+      <th>Durata</th>
+    </tr>
+  </thead>
+  <tbody id="signals"></tbody>
+</table>
+
+
+<script src="script.js"></script>
+</body>
+</html>

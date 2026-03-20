@@ -1,0 +1,132 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+/* TABELLA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #222;
+  padding: 12px;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+/* COLORI SEGNALI */
+.strong_buy {
+  background: #00ff00;
+  color: #000;
+  font-weight: 900;
+  border-left: 4px solid #fff;
+}
+
+.strong_sell {
+  background: #ff0000;
+  color: #000;
+  font-weight: 900;
+  border-left: 4px solid #fff;
+}
+
+.buy {
+  background: #009900;
+  color: #fff;
+}
+
+.sell {
+  background: #cc0000;
+  color: #fff;
+}
+
+.weak {
+  background: #ffcc00;
+  color: #000;
+}
+
+
+/* FILTRI */
+.filters {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background: #444;
+}
+
+/* STATUS BAR */
+.status-bar {
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+}
+
+.refresh-btn {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.refresh-btn:hover {
+  background: #666;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  table {
+    font-size: 11px;
+  }
+
+  td, th {
+    padding: 5px;
+  }
+
+  .filters button {
+    flex: 1 1 48%;
+    font-size: 12px;
+  }
+}
+
