@@ -1,132 +1,121 @@
-/* FONT */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 body {
-  font-family: 'Inter', sans-serif;
   background: #000;
   color: #fff;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-/* TABELLA */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background: #111;
-  color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
-th {
-  background: #222;
-  padding: 12px;
-  font-weight: 600;
-}
-
-td {
-  padding: 10px;
+th, td {
+  padding: 8px;
   border-bottom: 1px solid #333;
 }
 
-/* COLORI SEGNALI */
-.strong_buy {
-  background: #00ff00;
-  color: #000;
+
+td:nth-child(4) {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* COLORI SEGNALI — VERSIONE FORZATA */
+
+/* STRONG BUY */
+tbody tr.strong_buy {
+  background-color: rgba(0, 255, 0, 0.25) !important;
+  color: #00ff00 !important;
+}
+
+/* BUY */
+tbody tr.buy {
+  background-color: rgba(0, 180, 0, 0.20) !important;
+  color: #00ff00 !important;
+}
+
+/* STRONG SELL */
+tbody tr.strong_sell {
+  background-color: rgba(255, 0, 0, 0.25) !important;
+  color: #ff4444 !important;
+}
+
+/* SELL */
+tbody tr.sell {
+  background-color: rgba(180, 0, 0, 0.20) !important;
+  color: #ff5555 !important;
+}
+
+/* WEAK */
+tbody tr.weak {
+  background-color: rgba(255, 255, 0, 0.18) !important;
+  color: #ffdd55 !important;
+}
+
+/* NEUTRO */
+tbody tr.neutro {
+  background-color: rgba(0, 120, 255, 0.15) !important;
+  color: #66aaff !important;
+}
+
+/* FRECCIA */
+td:nth-child(4) {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+/* Freccia BUY (trend positivo) */
+td.arrow-up {
+  color: #00ff88 !important;
+  text-shadow: 0 0 6px #00ff88;
+}
+
+/* Freccia SELL (trend negativo) */
+td.arrow-down {
+  color: #ff4444 !important;
+  text-shadow: 0 0 6px #ff4444;
+}
+td.arrow-up,
+td.arrow-down {
+  font-size: 28px;
   font-weight: 900;
-  border-left: 4px solid #fff;
+  letter-spacing: 1px;
+}
+/* Effetto pulse quando arriva un nuovo segnale */
+@keyframes pulseRow {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
 }
 
-.strong_sell {
-  background: #ff0000;
-  color: #000;
-  font-weight: 900;
-  border-left: 4px solid #fff;
+tr.new-signal {
+  animation: pulseRow 0.6s ease-out;
+}
+/* Effetto pulse quando arriva un nuovo segnale */
+@keyframes pulseRow {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
 }
 
-.buy {
-  background: #009900;
-  color: #fff;
+tr.new-signal {
+  animation: pulseRow 0.6s ease-out;
+}
+/* Freccia BUY che sale leggermente */
+@keyframes arrowUpMove {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
 }
 
-.sell {
-  background: #cc0000;
-  color: #fff;
-}
-
-.weak {
-  background: #ffcc00;
-  color: #000;
+/* Freccia SELL che scende leggermente */
+@keyframes arrowDownMove {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(3px); }
+  100% { transform: translateY(0); }
 }
 
 
-/* FILTRI */
-.filters {
-  margin-bottom: 15px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filters button {
-  background: #222;
-  color: #fff;
-  border: 1px solid #555;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.filters button:hover {
-  background: #444;
-}
-
-/* STATUS BAR */
-.status-bar {
-  background: #111;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.status-dot {
-  width: 12px;
-  height: 12px;
-  background: #555;
-  border-radius: 50%;
-}
-
-.refresh-btn {
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-.refresh-btn:hover {
-  background: #666;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-  table {
-    font-size: 11px;
-  }
-
-  td, th {
-    padding: 5px;
-  }
-
-  .filters button {
-    flex: 1 1 48%;
-    font-size: 12px;
-  }
-}
 

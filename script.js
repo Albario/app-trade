@@ -96,17 +96,27 @@ function stampaSegnale(label, segnale) {
   tr.className = segnale.tipo.toLowerCase();
   tr.dataset.end = segnale.end.getTime();
 
-  tr.innerHTML = `
-    <td>${segnale.start.toISOString().replace("T"," ").substring(0,19)}</td>
-    <td>${label}</td>
-    <td>${segnale.tipo}</td>
-    <td>${segnale.score.toFixed(2)}</td>
-    <td>${segnale.perc.toFixed(2)}%</td>
-    <td>${segnale.end.toISOString().replace("T"," ").substring(0,19)}</td>
-    <td class="countdown">${segnale.duration}m 00s</td>
-  `;
+  // FRECCIA DIREZIONALE
+// FRECCIA SEMPRE VISIBILE
+let arrow = segnale.perc >= 0 ? "↑" : "↓";
+
+
+tr.innerHTML = `
+  <td>${segnale.start.toISOString().replace("T"," ").substring(0,19)}</td>
+  <td>${label}</td>
+  <td>${segnale.tipo}</td>
+  <td class="${arrow === '↑' ? 'arrow-up' : 'arrow-down'}">${arrow}</td>
+  <td>${segnale.score.toFixed(2)}</td>
+  <td>${segnale.end.toISOString().replace("T"," ").substring(0,19)}</td>
+  <td class="countdown">${segnale.duration}m 00s</td>
+`;
+
+
 
   tbody.prepend(tr);
+  tr.classList.add("new-signal");
+setTimeout(() => tr.classList.remove("new-signal"), 600);
+
 
   // SUONI
   if (segnale.tipo === "STRONG_BUY" || segnale.tipo === "BUY") {
@@ -125,6 +135,7 @@ function stampaSegnale(label, segnale) {
     rows[rows.length - 1].remove();
   }
 }
+
 
 /* ------------------------------
    FETCH DATI (ROUND ROBIN)
