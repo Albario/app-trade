@@ -66,8 +66,9 @@ function generaSegnale(rsi, ema20, ema50) {
   score += rsiStrength * 1.1; // RSI più incisivo
 
   // Filtro direzionale semplice
-  if (ema20 > ema50) score += 4;
-  if (ema20 < ema50) score -= 4;
+  if (ema20 > ema50) score += 2;
+  if (ema20 < ema50) score -= 2;
+  if (perc < -0.05) score -= 3;
 
   let tipo = "NEUTRO";
 
@@ -178,7 +179,7 @@ async function fetchData() {
     if (candles.length > 25) {
       const closes = candles.map(c => c.close);
       const ema20 = calcEMA(closes.slice(-25), 20);
-      const ema50 = calcEMA(closes.slice(-25), 20); // EMA50 simulata
+      const ema50 = calcEMA(closes.slice(-50), 50);
       const rsi = calcRSI(closes, 14);
 
       if (ema20 && ema50 && rsi !== null) {
